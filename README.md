@@ -29,6 +29,9 @@ From this, it was able to be determined that in order to achieve a temperature o
 
 ### Closed Loop:
 A closed loop system utilizes both the desired temperature and current temperature to determine the fan PWM duty cycle. In order to do so, a Proportional, Integral, Derivative control, or PID control equation was utilized. 
-
+The proportiaonal portion of the controller compares the desired temperature wuth the actual temperature. The resulting error is then multiplied with a constannt (KP) to get a portion of the output. 
+The integral portion of the controller integrates the error until the error value reaches zero. The integral control decreases its output when negative error takes place and limits the speed of response. The intragral is mutilplied with a constant (KI) to get another portion of the output.
+The derivative portion of the controller anticipates the future error of the value. The derivative is mutiplied with a constant (KD) to get the last potion of the output.
+The constants, KP, KI, and KD can be adjusted in order to better tune the closed loop control and minimize oscillation of the temperature.
 A diagram of how this closed clop control works can be seen below:
 ![alt text](https://github.com/RU09342-F18/introtoembedded-f18-milestone2-russell-s-biggest-fan-s/blob/master/Figures/PID%20Block%20Diagram.png)
