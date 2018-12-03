@@ -20,5 +20,15 @@ In order to control the 12 volt fan, a low side switch was utilized to take the 
 ![alt text](https://github.com/RU09342-F18/introtoembedded-f18-milestone2-russell-s-biggest-fan-s/blob/master/Figures/Low%20Side%20Fan%20Circuit.PNG)
 
 ### Open Loop:
+Open Loop control determines the duty cycle of the fan in order to reach a desired temperature. In order to achieve this, the following equation was developed:
+Duty Cycle = [(0.9259 * setTemp^2)  - (91.922 * setTemp) + 2333.6] / 255
+This was done by plotting a series of temperatures of varying PWM duty cycles, plotting the measurements, and calculating a line of best fit. A plot of the measurements can be seen below.
+![alt text](https://github.com/RU09342-F18/introtoembedded-f18-milestone2-russell-s-biggest-fan-s/blob/master/Figures/Open%20Loop%20Control%20Plot.PNG)
+From this, it was able to be determined that in order to achieve a temperature of below 35 degrees Celsius, the fan would have to be set to 100% duty cucle, and in order to achieve a tempaerature of above 55 degrees Celsius, the fan would have to be shut off. A digram of how this open loop control works can be seen below: 
+![alt text](https://github.com/RU09342-F18/introtoembedded-f18-milestone2-russell-s-biggest-fan-s/blob/master/Figures/Open%20Loop%20Block%20Diagram.png)
 
 ### Closed Loop:
+A closed loop system utilizes both the desired temperature and current temperature to determine the fan PWM duty cycle. In order to do so, a Proportional, Integral, Derivative control, or PID control equation was utilized. 
+
+A diagram of how this closed clop control works can be seen below:
+![alt text](https://github.com/RU09342-F18/introtoembedded-f18-milestone2-russell-s-biggest-fan-s/blob/master/Figures/PID%20Block%20Diagram.png)
